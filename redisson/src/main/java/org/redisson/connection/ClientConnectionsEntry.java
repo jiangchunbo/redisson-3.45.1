@@ -82,6 +82,9 @@ public class ClientConnectionsEntry {
         this.trackedConnectionsHolder = new TrackedConnectionsHolder(connectionsHolder);
     }
 
+    /**
+     * 初始化连接
+     */
     public CompletableFuture<Void> initConnections(int minimumIdleSize) {
         return connectionsHolder.initConnections(minimumIdleSize);
     }

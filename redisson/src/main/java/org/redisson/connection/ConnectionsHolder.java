@@ -123,6 +123,7 @@ public class ConnectionsHolder<T extends RedisConnection> {
             return CompletableFuture.completedFuture(null);
         }
 
+        // 首先从 createConnection 开头，然后不停地迭代 createConnection
         CompletableFuture<Void> f = createConnection(minimumIdleSize, 1);
         for (int i = 2; i <= minimumIdleSize; i++) {
             int k = i;
